@@ -5,7 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
-
+.idea/
+.cache/
+.config/
+.upm/
+poetry.lock/
+pyproject.toml/
 # Distribution / packaging
 .Python
 build/
