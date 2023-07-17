@@ -6,9 +6,6 @@ import sys
 import argparse
 
 
-load_dotenv()
-
-
 def shorten_link(token, url):
     bitlink_service = "https://api-ssl.bitly.com/v4/bitlinks"
     payload = {"long_url": url}
@@ -53,6 +50,7 @@ def create_parser():
 
 
 def main():
+    load_dotenv()
     token = os.environ['BITLY_TOKEN']
 
 #    url = input("Введите ссылку: ")
