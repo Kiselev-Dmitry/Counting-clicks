@@ -57,21 +57,19 @@ def main():
     url = namespace.url
     parsed_url = urlparse(url)
     
-    if is_bitlink(token, "{}{}".format(parsed_url.netloc, parsed_url.path)):
-        try:
+
+    try:
+        if is_bitlink(token, "{}{}".format(parsed_url.netloc, parsed_url.path)):
             total_clicks = count_clicks(
                 token, "{}{}".format(parsed_url.netloc, parsed_url.path)
             )
             print('Количество кликов', total_clicks)
-        except requests.exceptions.HTTPError:
-            print("Ошибка запроса")
-    else:
-        try:
+        else:
             bitlink = shorten_link(token, url)
             print('Битлинк', bitlink)
-        except requests.exceptions.HTTPError:
-             print("Ошибка запроса")
-            
+    except requests.exceptions.HTTPError:
+        print("Ошибка запроса")
+
 
 if __name__ == '__main__':
     main()
