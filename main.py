@@ -52,8 +52,6 @@ def create_parser():
 def main():
     load_dotenv()
     token = os.environ['BITLY_TOKEN']
-
-#    url = input("Введите ссылку: ")
     parser = create_parser()
     namespace = parser.parse_args()
     url = namespace.url
